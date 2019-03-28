@@ -1,0 +1,60 @@
+function minesweeper(matrix) {
+	let count = [];
+	for(let i = 0; i < matrix.length; i++){
+		count.push([])
+		for(let j= 0; j< matrix[i].length; j++){
+			count[i][j] = 0;
+			// top
+			if(matrix[i][j - 1] === true){
+				count[i][j]++;
+			}
+			// bottom
+			if(matrix[i][j+1] != undefined){
+				if(matrix[i][j +1] === true){
+					count[i][j]++;
+				}
+			}
+			// /left
+			if(matrix[i-1] != undefined){
+				if(matrix[i - 1][j] === true){
+					count[i][j]++;
+				}
+			}
+			//right
+			if(matrix[i + 1] != undefined){
+				if(matrix[i + 1][j] === true){
+					count[i][j]++;
+				}
+			}
+			// down right
+			if(matrix[i + 1] != undefined){
+				if(matrix[i + 1][j + 1] === true){
+					count[i][j]++;
+				}
+			}
+			// down left
+			if(matrix[i + 1] != undefined){
+				if(matrix[i+ 1][j - 1] === true){
+					count[i][j]++;
+				}
+			}
+			// top right
+			if(matrix[i - 1] != undefined){
+				if(matrix[i - 1][j + 1] === true){
+					count[i][j]++;
+				}
+			}
+			// top left
+			if(matrix[i - 1] != undefined){
+				if(matrix[i - 1][j - 1] === true){
+					count[i][j]++;
+				}
+			}
+		}
+	}
+	return count;
+};
+
+minesweeper([[true,true,true], 
+	[true,true,true], 
+	[true,true,true]])
